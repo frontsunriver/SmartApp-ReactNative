@@ -1,10 +1,11 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createSwitchNavigator, createCompatNavigatorFactory  } from '@react-navigation/compat';
+import { DrawerActions, NavigationContainer } from '@react-navigation/native';
 
-import {Articles, Components, Home, Profile, Register, Pro, Dashboard} from '../screens';
+import {Articles, Components, Home, Profile, Register, Pro, Dashboard, Login, Switch, Summary} from '../screens';
 import {useScreenOptions, useTranslation} from '../hooks';
-import { Text, View, TouchableOpacity, ImageBackground } from 'react-native';
-import {DrawerActions} from '@react-navigation/native';
+import { Text, View, TouchableOpacity, ImageBackground, Alert } from 'react-native';
 import {useNavigation} from '@react-navigation/core';
 import Button from '../components/Button';
 import Image from '../components/Image';
@@ -20,7 +21,7 @@ export default () => {
 
   return (
     <Stack.Navigator screenOptions={screenOptions.stack}>
-      
+            
       <Stack.Screen
         name="Home"
         component={Dashboard}
@@ -41,13 +42,11 @@ export default () => {
                     paddingTop: 40
                   }}
                 >
-                  <TouchableOpacity
+                  <View
                   style={{ paddingLeft: 30 }}
-                  onPress={() => {
-                    alert('Left');
-                  }}>
-                    <Image source={icons.bigChat} radius={0} color={colors.card} style={{width: 50, height: 50}} />
-                  </TouchableOpacity>
+                  >
+                    <Image source={icons.bigChat} radius={0} style={{width: 50, height: 50}} />
+                  </View>
                   <View 
                     style={{
                       display: 'flex',
@@ -55,14 +54,13 @@ export default () => {
                       justifyContent: 'space-between',
                     }}
                   >
-                     <Button onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
+                    <Button onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
                       <Image source={icons.search} radius={0} color={colors.background} />
                     </Button>
                     <Button onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
                       <Image source={icons.menu} radius={0} color={colors.background} />
                     </Button>
                   </View>
-                  
                 </View>
               </ImageBackground>
             
@@ -87,12 +85,6 @@ export default () => {
       <Stack.Screen
         name="Profile"
         component={Profile}
-        options={{headerShown: false}}
-      />
-
-      <Stack.Screen
-        name="Register"
-        component={Register}
         options={{headerShown: false}}
       />
 

@@ -1,3 +1,6 @@
+export {default as Switch} from './Switch';
+export {default as Login} from './Login';
+export {default as Summary} from './Summary';
 export {default as About} from './Pro';
 export {default as Agreement} from './Pro';
 export {default as Articles} from './Articles';
@@ -11,7 +14,6 @@ export {default as NotificationsSettings} from './Pro';
 export {default as Privacy} from './Pro';
 export {default as Profile} from './Profile';
 export {default as Register} from './Register';
-export {default as Login} from './Pro';
 export {default as Rental} from './Pro';
 export {default as Rentals} from './Pro';
 export {default as Booking} from './Pro';

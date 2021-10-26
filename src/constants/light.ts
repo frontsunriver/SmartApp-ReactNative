@@ -14,9 +14,9 @@ export const COLORS: ThemeColors = {
 
   // base colors
   /** UI color for #primary */
-  primary: '#CB0C9F',
+  primary: '#0E74F4',
   /** UI color for #secondary */
-  secondary: '#627594', // '#8392AB',
+  secondary: '#D3D5DA', // '#8392AB',
   /** UI color for #tertiary */
   tertiary: '#E8AE4C',
 
@@ -50,8 +50,8 @@ export const COLORS: ThemeColors = {
   overlay: 'rgba(0,0,0,0.3)',
 
   /** UI color for input borderColor on focus */
-  focus: '#E293D3',
-  input: '#252F40',
+  focus: '#0E74F4',
+  input: '#201E1E',
 
   /** UI color for switch checked/active color */
   switchOn: '#3A416F',

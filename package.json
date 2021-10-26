@@ -3,6 +3,7 @@
     "scripts": {
         "start": "expo start",
         "android": "expo start --android",
+        "android-build": "expo build:android",
         "ios": "expo start --ios",
         "web": "expo start --web",
         "eject": "expo eject",
@@ -13,6 +14,7 @@
         "@babel/plugin-syntax-decorators": "^7.14.5",
         "@react-native-async-storage/async-storage": "^1.13.0",
         "@react-native-community/masked-view": "0.1.10",
+        "@react-navigation/compat": "^5.3.20",
         "@react-navigation/drawer": "^5.12.5",
         "@react-navigation/native": "^5.9.4",
         "@react-navigation/stack": "^5.14.5",

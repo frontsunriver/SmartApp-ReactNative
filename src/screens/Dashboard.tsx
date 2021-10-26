@@ -13,15 +13,18 @@ const Dashboard = () => {
 
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
-    { key: 'home', title: 'CHAT' },
-    { key: 'home', title: 'GROUP' },
-    { key: 'home', title: 'STATUS' },
-    { key: 'home', title: 'CALLS' },
+    { key: 'chat', title: 'CHAT' },
+    { key: 'group', title: 'GROUP' },
+    { key: 'status', title: 'STATUS' },
+    { key: 'calls', title: 'CALLS' },
     { key: 'profile', title: 'TOOLS' },
   ]);
 
   const renderScene = SceneMap({
-    home: Home,
+    chat: Home,
+    group: Home,
+    status: Home,
+    calls: Home,
     profile: Profile,
   });
 

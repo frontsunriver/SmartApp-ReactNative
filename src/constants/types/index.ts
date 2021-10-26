@@ -54,6 +54,15 @@ export interface IProduct {
   linkLabel?: string;
   type: 'vertical' | 'horizontal';
 }
+
+export interface IChatItem {
+  id?: number;
+  content?: string;
+  image?: string;
+  time?: string;
+  user?: IUser;
+}
+
 export interface ILocation {
   id?: number;
   city?: string;

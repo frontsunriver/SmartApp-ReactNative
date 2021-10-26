@@ -42,11 +42,14 @@
         "checkout": "Proceed to checkout",
         "readArticle": "Read Article",
         "send": "Send",
+        "remember": "Remember Me",
         "guests": {
             "one": "1 guest",
             "other": "{{count}} guests",
             "zero": "0 Guests"
-        }
+        },
+        "welcome1": "Welcome to SmartApp Business Mobile, an online MarkeƟng plaƞorm with Business tools / E - commerce that connects Vendors and Businesses to their target audience with just one click.",
+        "welcome2": "SmartAPP Business is the future."
     },
     "app": {
         "name": "Soft UI",

@@ -2,6 +2,7 @@ import React, {useCallback, useState} from 'react';
 
 import {useData, useTheme, useTranslation} from '../hooks/';
 import {Block, Button, Image, Input, Product, Text} from '../components/';
+import ChatUserItem from '../components/ChatUserItem';
 
 const Home = () => {
   const {t} = useTranslation();
@@ -27,12 +28,10 @@ const Home = () => {
       {/* products list */}
       <Block
         scroll
-        paddingHorizontal={sizes.padding}
-        showsVerticalScrollIndicator={false}
         contentContainerStyle={{paddingBottom: sizes.l}}>
-        <Block row wrap="wrap" justify="space-between" marginTop={sizes.sm}>
+        <Block marginTop={sizes.sm}>
           {products?.map((product) => (
-            <Product {...product} key={`card-${product?.id}`} />
+            <ChatUserItem {...product} key={`card-${product?.id}`} />
           ))}
         </Block>
       </Block>
