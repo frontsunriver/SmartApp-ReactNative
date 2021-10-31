@@ -1,8 +1,8 @@
 {
     "expo": {
-        "name": "SmartApp",
-        "slug": "SmartApp",
-        "description": "React Native - Soft UI Kit - Free",
+        "name": "SmartAppBusiness",
+        "slug": "SmartAppBusiness",
+        "description": "SmartAppBusiness",
         "primaryColor": "#CB0C9F",
         "version": "1.0.0",
         "orientation": "portrait",

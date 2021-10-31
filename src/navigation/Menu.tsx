@@ -69,7 +69,7 @@ const DrawerContent = (
   const {t} = useTranslation();
   const {isDark, handleIsDark} = useData();
   const [active, setActive] = useState('Home');
-  const {assets, colors, gradients, sizes} = useTheme();
+  const {icons, assets, colors, gradients, sizes} = useTheme();
   const labelColor = colors.text;
 
   const handleNavigation = useCallback(
@@ -84,11 +84,12 @@ const DrawerContent = (
 
   // screen list for Drawer menu
   const screens = [
-    {name: t('screens.profile'), to: 'Profile', icon: assets.profile},
-    {name: t('screens.privacy'), to: 'Setting', icon: assets.profile},
-    {name: t('screens.charts'), to: 'Pro', icon: assets.chat},
+    {name: t('screens.businessProfile'), to: 'Profile', icon: assets.profile},
+    {name: t('screens.businessTools'), to: 'Setting', icon: assets.profile},
+    {name: t('screens.privacy'), to: 'Business Tools', icon: assets.profile},
+    {name: t('screens.charts'), to: 'Chat', icon: assets.chat},
     {name: t('screens.notification'), to: 'Components', icon: assets.notification},
-    {name: t('screens.storage'), to: 'Articles', icon: assets.basket},
+    {name: t('screens.storageAndData'), to: 'Articles', icon: assets.basket},
     {name: t('screens.ewallet'), to: 'Register', icon: assets.profile},
     {name: t('screens.help'), to: 'Profile', icon: assets.profile},
     {name: t('screens.settings'), to: 'Pro', icon: assets.settings},
@@ -111,111 +112,85 @@ const DrawerContent = (
       removeClippedSubviews
       renderToHardwareTextureAndroid
       contentContainerStyle={{paddingBottom: sizes.padding}}>
-      <Block paddingHorizontal={sizes.padding}>
-        {/* <Block flex={0} row align="center" marginBottom={sizes.l}>
+      <Block color={colors['white']} radius={0}>
+        <Block flex={0} row align="center" justify="center" marginBottom={0} marginTop={sizes.l}>
           <Image
-            radius={0}
-            width={33}
-            height={33}
-            color={colors.text}
-            source={assets.logo}
-            marginRight={sizes.sm}
+            radius={96}
+            width={96}
+            height={96}
+            source={assets.avatar2}
           />
-          <Block>
+          
+        </Block>
+        <Block  row align="center" justify="center" marginBottom={sizes.l} marginTop={sizes.sm}>
             <Text size={12} semibold>
-              {t('app.name')}
+              {"Sizewe Zondi"}
             </Text>
-            <Text size={12} semibold>
-              {t('app.native')}
-            </Text>
-          </Block>
-        </Block> */}
-
+        </Block>
         {screens?.map((screen, index) => {
           const isActive = active === screen.to;
           return (
             <Button
               row
               justify="flex-start"
-              marginBottom={sizes.s}
+              // marginBottom={sizes.s}
               key={`menu-screen-${screen.name}-${index}`}
-              onPress={() => handleNavigation(screen.to)}>
+              onPress={() => handleNavigation(screen.to)}
+              width={"100%"}
+              paddingRight={sizes.padding}
+              paddingLeft={sizes.padding}
+              color={isActive ? "#0274f4" : ""}
+              style={{
+                borderBottomWidth: 2,
+                borderColor: "#c4c4c4",
+                borderStyle: "solid",
+                borderRadius: 0
+              }}>
               <Block
                 flex={0}
-                radius={6}
+                radius={16}
                 align="center"
                 justify="center"
-                width={sizes.md}
-                height={sizes.md}
-                marginRight={sizes.s}
-                gradient={gradients[isActive ? 'primary' : 'white']}>
+                width={sizes.m}
+                height={sizes.m}
+                marginRight={13}
+                color={"#0274f4"}
+                >
                 <Image
                   radius={0}
-                  width={14}
-                  height={14}
+                  width={sizes.sm}
+                  height={sizes.sm}
                   source={screen.icon}
-                  color={colors[isActive ? 'white' : 'black']}
+                  // color={colors[isActive ? 'white' : 'black']}
+                  color={colors['white']}
                 />
               </Block>
-              <Text p semibold={isActive} color={labelColor}>
+              <Text p semibold={true} color={labelColor} size={15}> 
                 {screen.name}
               </Text>
+              <Image
+                  radius={40}
+                  width={14}
+                  height={14}
+                  source={icons.arrow}
+                  // color={colors[isActive ? 'white' : 'black']}
+                  color={"#0274f4"}
+                  style={{
+                    position: 'absolute', 
+                    right: sizes.padding
+                  }}
+
+                />
+              {/* <Text p 
+                semibold={isActive} 
+                color={labelColor}
+                align={"right"}
+              >
+                {screen.name}
+              </Text> */}
             </Button>
           );
         })}
-
-        {/* <Block
-          flex={0}
-          height={1}
-          marginRight={sizes.md}
-          marginVertical={sizes.sm}
-          gradient={gradients.menu}
-        />
-
-        <Text semibold transform="uppercase" opacity={0.5}>
-          {t('menu.documentation')}
-        </Text>
-
-        <Button
-          row
-          justify="flex-start"
-          marginTop={sizes.sm}
-          marginBottom={sizes.s}
-          onPress={() =>
-            handleWebLink('https://github.com/creativetimofficial')
-          }>
-          <Block
-            flex={0}
-            radius={6}
-            align="center"
-            justify="center"
-            width={sizes.md}
-            height={sizes.md}
-            marginRight={sizes.s}
-            gradient={gradients.white}>
-            <Image
-              radius={0}
-              width={14}
-              height={14}
-              color={colors.black}
-              source={assets.documentation}
-            />
-          </Block>
-          <Text p color={labelColor}>
-            {t('menu.started')}
-          </Text>
-        </Button> */}
-
-        {/* <Block row justify="space-between" marginTop={sizes.sm}>
-          <Text color={labelColor}>{t('darkMode')}</Text>
-          <Switch
-            checked={isDark}
-            onPress={(checked) => {
-              handleIsDark(checked);
-              Alert.alert(t('pro.title'), t('pro.alert'));
-            }}
-          />
-        </Block> */}
       </Block>
     </DrawerContentScrollView>
   );

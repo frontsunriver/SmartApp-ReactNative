@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createSwitchNavigator, createCompatNavigatorFactory  } from '@react-navigation/compat';
 import { DrawerActions, NavigationContainer } from '@react-navigation/native';
 
-import {Articles, Components, Home, Profile, Register, Pro, Dashboard, Login, Switch, Summary} from '../screens';
+import {Articles, Components, Home, Profile, Register, Pro, Dashboard, Login, Switch, Summary, Chat} from '../screens';
 import {useScreenOptions, useTranslation} from '../hooks';
 import { Text, View, TouchableOpacity, ImageBackground, Alert } from 'react-native';
 import {useNavigation} from '@react-navigation/core';
@@ -83,9 +83,49 @@ export default () => {
       <Stack.Screen name="Pro" component={Pro} options={screenOptions.pro} />
 
       <Stack.Screen
-        name="Profile"
-        component={Profile}
-        options={{headerShown: false}}
+        name="Chat"
+        component={Chat}
+        options={{header: () => (
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              height: 100,
+            }}>
+              <ImageBackground source={require("../assets/images/header.jpg")} resizeMode="cover" style={{width: '100%'}}>
+                <View
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    paddingTop: 40
+                  }}
+                >
+                  <View
+                  style={{ paddingLeft: 30 }}
+                  >
+                    <Image source={icons.bigChat} radius={0} style={{width: 50, height: 50}} />
+                  </View>
+                  <View 
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                    }}
+                  >
+                    <Button onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
+                      <Image source={icons.search} radius={0} color={colors.background} />
+                    </Button>
+                    <Button onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
+                      <Image source={icons.menu} radius={0} color={colors.background} />
+                    </Button>
+                  </View>
+                </View>
+              </ImageBackground>
+            
+          </View>
+        )}}
       />
 
     </Stack.Navigator>

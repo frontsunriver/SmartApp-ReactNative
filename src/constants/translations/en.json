@@ -73,7 +73,10 @@
         "storage": "Storage And Data",
         "ewallet": "E-Wallet",
         "help": "Help",
-        "signout": "Sign out"
+        "signout": "Sign out",
+        "businessProfile":"Business Profile",
+        "businessTools": "Business Tools",
+        "storageAndData": "Storage And Data"
     },
     "navigation": {
         "home": "Soft UI",

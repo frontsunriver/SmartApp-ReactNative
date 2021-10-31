@@ -130,7 +130,7 @@ const Register = () => {
               {/* checkbox terms */}
               <Block row flex={0} align="center" paddingHorizontal={sizes.sm}>
                 <Checkbox
-                  white
+                  
                   marginRight={sizes.sm}
                   checked={registration?.agreed}
                   onPress={(value) => handleChange({agreed: value})}

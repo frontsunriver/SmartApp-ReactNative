@@ -149,3 +149,11 @@ export interface INotification {
     | 'extras'
     | 'office';
 }
+
+export interface IChatItem {
+  _id?: number;
+  text?: string;
+  createdAt?: number | Date;
+  avatar?: string
+  name?: string
+}
